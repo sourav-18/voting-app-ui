@@ -1,10 +1,11 @@
 import { _retrieveData } from "../../localStorage";
+import env from "../../env.js"
 
 export function upcomeingElection (voterData){
     return new Promise(async(resolve,reject)=>{
         const jwt_token=await _retrieveData("jwt_token");
         try{
-            const response=await fetch("http://192.168.0.143:4000/voter/upcomingelection",{
+            const response=await fetch(`${env.BASE_URL}/voter/upcomingelection`,{
                 method:'GET',
                 headers:{'Authorization':`Bearer ${jwt_token}`}
             })
@@ -20,7 +21,7 @@ export function showVoterRegisterElection (voterData){
     return new Promise(async(resolve,reject)=>{
         const jwt_token=await _retrieveData("jwt_token");
         try{
-            const response=await fetch("http://192.168.0.143:4000/voter/registervote",{
+            const response=await fetch(`${env.BASE_URL}/voter/registervote`,{
                 method:'GET',
                 headers:{'Authorization':`Bearer ${jwt_token}`}
             })
@@ -36,7 +37,7 @@ export function showUnAttemptedVoter (){
     return new Promise(async(resolve,reject)=>{
         const jwt_token=await _retrieveData("jwt_token");
         try{
-            const response=await fetch("http://192.168.0.143:4000/voter/unattemptedvote",{
+            const response=await fetch(`${env.BASE_URL}/voter/unattemptedvote`,{
                 method:'GET',
                 headers:{'Authorization':`Bearer ${jwt_token}`}
             })
@@ -53,7 +54,7 @@ export function showTodayElaction (){
         // console.log("eter sdfldjfldsjfljsdlfjsdjlf sldflkds  ")
         const jwt_token=await _retrieveData("jwt_token");
         try{
-            const response=await fetch("http://192.168.0.143:4000/voter/todayvote",{
+            const response=await fetch(`${env.BASE_URL}/voter/todayvote`,{
                 method:'GET',
                 headers:{'Authorization':`Bearer ${jwt_token}`}
             })
@@ -69,7 +70,7 @@ export function RegisterElection (ElectionData){
     return new Promise(async(resolve,reject)=>{
         const jwt_token=await _retrieveData("jwt_token");
         try{
-            const response=await fetch("http://192.168.0.143:4000/voter/register",{
+            const response=await fetch(`${env.BASE_URL}/voter/register`,{
                 method:'POST',
                 body:JSON.stringify(ElectionData),
                 headers:{'Authorization':`Bearer ${jwt_token}`,'content-type':'application/json'},
@@ -87,7 +88,7 @@ export function removeName (ElectionData){
     return new Promise(async(resolve,reject)=>{
         const jwt_token=await _retrieveData("jwt_token");
         try{
-            const response=await fetch("http://192.168.0.143:4000/voter/remove",{
+            const response=await fetch(`${env.BASE_URL}/voter/remove`,{
                 method:'PUT',
                 body:JSON.stringify(ElectionData),
                 headers:{'Authorization':`Bearer ${jwt_token}`,'content-type':'application/json'},
@@ -105,7 +106,7 @@ export function SubmitVote (votingInfo){
     return new Promise(async(resolve,reject)=>{
         const jwt_token=await _retrieveData("jwt_token");
         try{
-            const response=await fetch("http://192.168.0.143:4000/voter/vote",{
+            const response=await fetch(`${env.BASE_URL}/voter/vote`,{
                 method:'POST',
                 headers:{'Authorization':`Bearer ${jwt_token}`,'content-type':'application/json'},
                 body:JSON.stringify(votingInfo),

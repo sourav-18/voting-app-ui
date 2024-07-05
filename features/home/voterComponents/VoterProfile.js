@@ -24,6 +24,7 @@ import dummyImage from "../../../assets/voter.jpg";
 import Emty from "../../../Emty";
 import { useNavigation } from "@react-navigation/native";
 const VoterProfile = () => {
+  
   const iconsColor="#fb8500";
   const [press1,setPress1]=useState(false)
   const [press2,setPress2]=useState(false)
@@ -139,7 +140,13 @@ const VoterProfile = () => {
       </Pressable>
       </View>
     </ScrollView>:
-    <Emty/>
+        <View style={styles.signOutCard}>
+
+        <Pressable onPress={()=>handleSignOut()} style={[styles.signOut,{backgroundColor:!press5?"transparent":"#1232541f"}]} onPressIn={()=>{setPress5(true)}} onPressOut={()=>setPress5(false)}>
+        <MaterialIcons name="logout" size={24} color={"red"} />
+        <Text style={styles.signOutText}>SignOut</Text>
+        </Pressable>
+        </View>
   );
 };
 

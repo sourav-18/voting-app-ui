@@ -67,11 +67,11 @@ const data =useSelector(selectAdminProfileData)
         </View>
         <View style={styles.numberCard}>
           <View style={styles.numcardOne}>
-            <Text style={styles.numberText}>{data?.data[0].resultCalculatTrueCount}</Text>
+            <Text style={styles.numberText}>{data?.data[0]?.resultCalculatTrueCount}</Text>
             <Text style={styles.numberInfoText}> Result Calculate </Text>
           </View>
           <View style={styles.numcardTwo}>
-            <Text style={styles.numberText}>{data?.data[0].totalCount}</Text>
+            <Text style={styles.numberText}>{data?.data[0]?.totalCount}</Text>
             <Text style={styles.numberInfoText}>Total Election</Text>
           </View>
         </View>

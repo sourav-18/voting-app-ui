@@ -1,10 +1,11 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { _retrieveData } from "../../localStorage";
+import env from "../../env.js"
 
 export function signInVoter (voterData){
     return new Promise(async(resolve,reject)=>{
         try{
-            const response=await fetch("http://192.168.0.143:4000/voter/signin",{
+            const response=await fetch(`${env.BASE_URL}/voter/signin`,{
                 method:'POST',
                 body:JSON.stringify(voterData),
                 headers:{'content-type':'application/json'}
@@ -23,7 +24,7 @@ export function signInVoter (voterData){
 export function signUpVoter (voterData){
     return new Promise(async(resolve,reject)=>{
         try{
-            const response=await fetch("http://192.168.0.143:4000/voter/signup",{
+            const response=await fetch(`${env.BASE_URL}/voter/signup`,{
                 method:'POST',
                 body:JSON.stringify(voterData),
                 headers:{'content-type':'application/json'}
@@ -39,7 +40,7 @@ export function signUpVoter (voterData){
 export function signInCandidate (candidateData){
     return new Promise(async(resolve,reject)=>{
         try{
-            const response=await fetch("http://192.168.0.143:4000/candidate/signin",{
+            const response=await fetch(`${env.BASE_URL}/candidate/signin`,{
                 method:'POST',
                 body:JSON.stringify(candidateData),
                 headers:{'content-type':'application/json'}
@@ -58,7 +59,7 @@ export function signInCandidate (candidateData){
 export function signUpCandidate (candidateData){
     return new Promise(async(resolve,reject)=>{
         try{
-            const response=await fetch("http://192.168.0.143:4000/candidate/signup",{
+            const response=await fetch(`${env.BASE_URL}/candidate/signup`,{
                 method:'POST',
                 body:JSON.stringify(candidateData),
                 headers:{'content-type':'application/json'}
@@ -75,7 +76,7 @@ export function voterdetais (){
     return new Promise(async(resolve,reject)=>{
         try{
             const jwt_token=await _retrieveData("jwt_token");
-            const response=await fetch("http://192.168.0.143:4000/voter/voterdetais",{
+            const response=await fetch(`${env.BASE_URL}/voter/voterdetais`,{
                 method:'GET',
                 headers:{'Authorization':`Bearer ${jwt_token}`}
             })
@@ -90,7 +91,7 @@ export function candidatedetais (){
     return new Promise(async(resolve,reject)=>{
         try{
             const jwt_token=await _retrieveData("jwt_token");
-            const response=await fetch("http://192.168.0.143:4000/candidate/candidatedetais",{
+            const response=await fetch(`${env.BASE_URL}/candidate/candidatedetais`,{
                 method:'GET',
                 headers:{'Authorization':`Bearer ${jwt_token}`}
             })

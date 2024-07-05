@@ -20,7 +20,6 @@ const AdminSignIn = () => {
     const errorText={name:"fill the name",password:"fill the password "}
     const handleAdminSignIn=async()=>{
         setErrorAction(true)
-        console.log({name,password})
         if(name&&password){
             dispatch(adminSignInAsync({name:name.trim(),password:password.trim()}));
         }

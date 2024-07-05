@@ -113,7 +113,13 @@ const data = useSelector(selectCndidteDetais);
     <Text style={styles.signOutText}>SignOut</Text>
     </Pressable>
     </View>
-  </ScrollView>:<Emty/>
+  </ScrollView>:
+  <View style={styles.signOutCard}>
+   <Pressable onPress={()=>handleSignOut()} style={[styles.signOut,{backgroundColor:!press5?"transparent":"#1232541f"}]} onPressIn={()=>{setPress5(true)}} onPressOut={()=>setPress5(false)}>
+   <MaterialIcons name="logout" size={24} color={"red"} />
+   <Text style={styles.signOutText}>SignOut</Text>
+   </Pressable>
+   </View>
    
   )
 }
